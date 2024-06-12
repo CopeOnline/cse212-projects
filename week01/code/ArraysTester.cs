@@ -43,16 +43,13 @@ public static class ArraysTester {
         // i is compared to the 'length' to make sure the current value of i is less than 'length';
         // the value of i is incremented by i each time the loop is ran.
         // variable 'multipler' is created and set to 1
-        // the quoietnet of 'number' and 'multiplier' is stored in results array at index of i
-        // 'multiplier' is incremeted by one.
+        // the product of 'number' and i + 1 ( i startes at 0 ) is stored in results array at index of i
         // returns the array of results.
 
         double[] results = new double[length];
-        var multiplier = 1;
         for (double i = 0; i < length; i++)
             {   
-                results[(int)i] = number * multiplier;
-                multiplier++;
+                results[(int)i] = number * (i + 1);
             }
             return results; // replace this return statement with your own
     }
