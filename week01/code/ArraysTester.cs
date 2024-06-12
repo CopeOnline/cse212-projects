@@ -50,7 +50,7 @@ public static class ArraysTester {
             {   
                 results[(int)i] = number * (i + 1);
             }
-            return results; // replace this return statement with your own
+            return results; 
     }
     
     /// <summary>
