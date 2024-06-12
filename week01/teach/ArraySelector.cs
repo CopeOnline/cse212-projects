@@ -1,3 +1,5 @@
+using System.Globalization;
+
 public static class ArraySelector
 {
     public static void Run()
@@ -9,8 +11,21 @@ public static class ArraySelector
         Console.WriteLine("<int[]>{" + string.Join(", ", intResult) + "}"); // <int[]>{1, 2, 3, 2, 4, 4, 6, 8, 10, 5}
     }
 
+
+
     private static int[] ListSelector(int[] list1, int[] list2, int[] select)
     {
-        return new int[0];
+        var result = new int[select.Length];
+        var l1Idx = 0; // We will use this to keep track of the index of the next item in the first array
+        var l2Idx = 0; //  We will use this to keep track of the index of the next item in the second array
+        for (var i = 0; i < select.Length; i++)
+        {
+            if (select[i] == 1)
+                result[i] = list1[l1Idx++];
+            else
+                result[i] = list2[l2Idx++];
+        }
+
+        return result;
     }
 }
