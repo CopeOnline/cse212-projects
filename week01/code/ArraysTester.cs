@@ -42,7 +42,6 @@ public static class ArraysTester {
         // int i sets the loop start point at zero;
         // i is compared to the 'length' to make sure the current value of i is less than 'length';
         // the value of i is incremented by i each time the loop is ran.
-        // variable 'multipler' is created and set to 1
         // the product of 'number' and i + 1 ( i startes at 0 ) is stored in results array at index of i
         // returns the array of results.
 
