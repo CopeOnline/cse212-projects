@@ -50,7 +50,7 @@
         Console.WriteLine(removed);
         // Console.WriteLine(priorityQueue);
 
-        // Defect(s) Found: Line 32 in PriorityQueue added, was not removing item with dequeue method.
+        // Defect(s) Found: Line 32 in PriorityQueue added to remove item at highPriorityIndex, was not removing item with dequeue method.
         //           Found: Line 25 PriotiryQueue _queueCount - 1 would not check the last value for priority and for loop started checking at index 1
         //                  changed to zero to check from first of list
         //           Found: LIne 26 used the >= signs which overwrote previous highPriorityIndex changed to > for FIFO
