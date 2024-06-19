@@ -28,7 +28,7 @@
 
         // Test 2
         // Scenario: Find person with the highest priority and remove from queue. If same priority exists remove FIFO. 
-        // Expected Result: Bob, George, Sue
+        // Expected Result: Tim
 
         Console.WriteLine("Test 2");
 
@@ -96,7 +96,7 @@
         Console.WriteLine(removed);
         // Console.WriteLine(priorityQueue);
 
-        // Defect(s) Found: LIne 26 used the >= signs which overwrote previous highPriorityIndex changed to > for FIFO
+        // Defect(s) Found: Line 26 used the >= signs which overwrote previous highPriorityIndex changed to > for FIFO
 
         Console.WriteLine("---------");
  
