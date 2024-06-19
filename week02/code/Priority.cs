@@ -27,8 +27,8 @@
         Console.WriteLine("---------");
 
         // Test 2
-        // Scenario: Find person with the highest priority and remove from queue. If same priority exists remove FIFO. Repeat two times.
-        // Expected Result: Tim, George, Sue
+        // Scenario: Find person with the highest priority and remove from queue. If same priority exists remove FIFO. 
+        // Expected Result: Bob, George, Sue
 
         Console.WriteLine("Test 2");
 
@@ -42,18 +42,7 @@
         Console.WriteLine(removed);   
         // Console.WriteLine(priorityQueue);
 
-        removed = priorityQueue.Dequeue();
-        Console.WriteLine(removed);
-        // Console.WriteLine(priorityQueue);
-
-        removed = priorityQueue.Dequeue();
-        Console.WriteLine(removed);
-        // Console.WriteLine(priorityQueue);
-
         // Defect(s) Found: Line 32 in PriorityQueue added to remove item at highPriorityIndex, was not removing item with dequeue method.
-        //           Found: Line 25 PriotiryQueue _queueCount - 1 would not check the last value for priority and for loop started checking at index 1
-        //                  changed to zero to check from first of list
-        //           Found: LIne 26 used the >= signs which overwrote previous highPriorityIndex changed to > for FIFO
 
         Console.WriteLine("---------");
 
@@ -68,6 +57,65 @@
         // Defect(s) Found: No defects found
 
         Console.WriteLine("---------");
+
+
+        // Test 4
+        // Scenario: Find person with the highest priority and remove from queue first of queue. If same priority exists remove FIFO. 
+        // Expected Result: Tim
+
+        Console.WriteLine("Test 4");
+
+        priorityQueue = new PriorityQueue();
+        priorityQueue.Enqueue("Tim", 5);
+        priorityQueue.Enqueue("Bob", 1);
+        priorityQueue.Enqueue("Sue", 3);
+        priorityQueue.Enqueue("George", 5);
+
+        removed = priorityQueue.Dequeue();
+        Console.WriteLine(removed);   
+        // Console.WriteLine(priorityQueue);
+
+        // Defect(s) Found: Found: Line 25 PriotiryQueue set to i = 1 so did not check first item for priority and for loop started 
+        //                  checking at index 1.
+
+        Console.WriteLine("---------");
+        
+        // Test 5
+        // Scenario: Find person with the highest priority and remove from queue. If same priority exists remove FIFO. 
+        // Expected Result: Tim
+
+        Console.WriteLine("Test 5");
+
+        priorityQueue = new PriorityQueue();
+        priorityQueue.Enqueue("Bob", 1);
+        priorityQueue.Enqueue("Tim", 5);
+        priorityQueue.Enqueue("Sue", 3);
+        priorityQueue.Enqueue("George", 5);
+
+        removed = priorityQueue.Dequeue();
+        Console.WriteLine(removed);
+        // Console.WriteLine(priorityQueue);
+
+        // Defect(s) Found: LIne 26 used the >= signs which overwrote previous highPriorityIndex changed to > for FIFO
+
+        Console.WriteLine("---------");
+ 
+        // Test 6
+        // Scenario: Find person with the highest priority and remove from queue at the end of the queue
+        // Expected Result: George
+
+        Console.WriteLine("Test 6");
+
+        priorityQueue = new PriorityQueue();
+        priorityQueue.Enqueue("Bob", 1);
+        priorityQueue.Enqueue("Sue", 3);
+        priorityQueue.Enqueue("George", 5);
+
+        removed = priorityQueue.Dequeue();
+        Console.WriteLine(removed);
+        // Console.WriteLine(priorityQueue);
+
+        // Defect(s) Found: Line 25 PriotiryQueue _queueCount - 1 would not check the last value for priority 
 
         // Add more Test Cases As Needed Below
     }
