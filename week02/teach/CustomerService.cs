@@ -11,20 +11,35 @@ public class CustomerService {
         // Test Cases
 
         // Test 1
-        // Scenario: 
-        // Expected Result: 
+        // Scenario: Add new customers check if added and check if _maxsize limits input.
+        // Expected Result: Takes in three customers (name, accountId, problem) and ends.
         Console.WriteLine("Test 1");
 
-        // Defect(s) Found: 
+        var customer = new CustomerService(3);
+
+        customer.AddNewCustomer();
+        customer.AddNewCustomer();
+        customer.AddNewCustomer();
+        customer.AddNewCustomer();
+
+        Console.WriteLine(customer);
+
+        // Defect(s) Found: In AddNewCustomer the if check need to be >= for _maxSize
 
         Console.WriteLine("=================");
 
         // Test 2
-        // Scenario: 
-        // Expected Result: 
+        // Scenario: Remove customers form queue. If empty return error
+        // Expected Result: Return error 
         Console.WriteLine("Test 2");
 
-        // Defect(s) Found: 
+        customer.ServeCustomer();
+        customer.ServeCustomer();
+        customer.ServeCustomer();
+        customer.ServeCustomer();
+        //Console.WriteLine(customer);
+
+        // Defect(s) Found: No error message when queue empty
 
         Console.WriteLine("=================");
 
@@ -67,7 +82,7 @@ public class CustomerService {
     /// </summary>
     private void AddNewCustomer() {
         // Verify there is room in the service queue
-        if (_queue.Count > _maxSize) {
+        if (_queue.Count >= _maxSize) {
             Console.WriteLine("Maximum Number of Customers in Queue.");
             return;
         }
@@ -88,8 +103,12 @@ public class CustomerService {
     /// Dequeue the next customer and display the information.
     /// </summary>
     private void ServeCustomer() {
-        _queue.RemoveAt(0);
+        if (_queue.Count <= 0) {
+            Console.WriteLine("No Customers in Queue.");
+            return;
+        }
         var customer = _queue[0];
+        _queue.RemoveAt(0);
         Console.WriteLine(customer);
     }
 
