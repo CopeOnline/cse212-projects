@@ -1,3 +1,4 @@
+using System.Security.Cryptography.X509Certificates;
 using System.Text.Json;
 
 public static class SetsAndMapsTester {
@@ -111,6 +112,22 @@ public static class SetsAndMapsTester {
         // To display the pair correctly use something like:
         // Console.WriteLine($"{word} & {pair}");
         // Each pair of words should displayed on its own line.
+
+            HashSet<string> seen = new HashSet<string>();
+
+            foreach (var word in words)
+            {
+                string reverseWord = new string(new[] { word[1], word[0] });
+
+                if (seen.Contains(reverseWord))
+                {
+                    Console.WriteLine($"{word} & {reverseWord}");
+                    seen.Remove(reverseWord);
+                }else
+                {
+                    seen.Add(word);
+                }
+            } 
     }
 
     /// <summary>
@@ -131,7 +148,14 @@ public static class SetsAndMapsTester {
         var degrees = new Dictionary<string, int>();
         foreach (var line in File.ReadLines(filename)) {
             var fields = line.Split(",");
-            // Todo Problem 2 - ADD YOUR CODE HERE
+            var degree = fields[3];
+            if (!degrees.ContainsKey(degree))
+                {
+                    degrees.Add(degree, 1);
+                }else
+                {
+                    degrees[degree] += 1 ;
+                }
         }
 
         return degrees;
@@ -157,8 +181,44 @@ public static class SetsAndMapsTester {
     /// # Problem 3 #
     /// #############
     private static bool IsAnagram(string word1, string word2) {
-        // Todo Problem 3 - ADD YOUR CODE HERE
-        return false;
+        word1 = word1.Replace(" ", "").ToLower();
+        word2 = word2.Replace(" ", "").ToLower();
+
+        Dictionary<char, int> letterCount = new Dictionary<char, int>();
+        var count = 0;
+
+        foreach (var letter in word1)
+        {
+            if (letterCount.ContainsKey(letter))
+            {
+                letterCount[letter]++;
+                count++;
+            }else
+            {
+                letterCount.Add(letter, 1);
+                count++;
+            }
+        }
+        foreach (var letter in word2)
+        {
+            if (letterCount.ContainsKey(letter))
+            {
+                letterCount[letter]--;
+                count--;
+                if (letterCount[letter] < 0)
+                {
+                    return false;
+                }
+            }else 
+            {
+                return false;
+            }
+        }
+        if (count != 0)
+            {
+                return false;
+            }
+        return true;
     }
 
     /// <summary>
