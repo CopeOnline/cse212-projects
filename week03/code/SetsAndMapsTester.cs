@@ -1,3 +1,4 @@
+using System.Runtime.Versioning;
 using System.Security.Cryptography.X509Certificates;
 using System.Text.Json;
 
@@ -295,5 +296,14 @@ public static class SetsAndMapsTester {
         // 1. Add code in FeatureCollection.cs to describe the JSON using classes and properties 
         // on those classes so that the call to Deserialize above works properly.
         // 2. Add code below to print out each place a earthquake has happened today and its magitude.
+        if (featureCollection.Features.Count > 0)
+        {
+            for (int i = 0; i < featureCollection.Features.Count; i++)
+            {
+            var firstEarthquake = featureCollection.Features[i];
+            Console.WriteLine($"{firstEarthquake.Properties.Place} - Mag {firstEarthquake.Properties.Mag}");
+            }
+
+        }
     }
 }
