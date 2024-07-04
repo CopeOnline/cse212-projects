@@ -35,7 +35,7 @@ public class LinkedList : IEnumerable<int> {
             _tail = newNode;
         }
         // If the list is not empty, then only tail will be affected.
-        else {
+        else if (_tail is not null) {
             newNode.Prev = _tail; // Connect new node to the previous tail
             _tail.Next = newNode; // Connect the previous tail to the new node
             _tail = newNode; // Update the tail to point to the new node
