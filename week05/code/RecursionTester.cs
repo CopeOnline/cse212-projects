@@ -344,7 +344,7 @@ public static class RecursionTester {
             // add to currPath
             currPath.Add((x, y));
 
-            // Check if we reached the end of the maze
+            // Base case
             if (maze.IsEnd(x, y))
             {
                 // Print the current path
