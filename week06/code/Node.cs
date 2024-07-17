@@ -14,7 +14,8 @@ public class Node {
             // Insert to the left
             if (Left is null)
                 Left = new Node(value);
-
+            if (Left.Contains(value))
+                return;
             else
                 Left.Insert(value);
         }
