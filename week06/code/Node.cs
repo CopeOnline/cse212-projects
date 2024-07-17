@@ -48,8 +48,18 @@ public class Node {
         if (Left == null && Right == null)
             return 1; 
         else {
-            int leftHeight = Left != null ? Left.GetHeight() : 0;
-            int rightHeight = Right != null ? Right.GetHeight() : 0;
+            int leftHeight;
+            int rightHeight;
+
+            if (Left != null)
+                leftHeight = Left.GetHeight();
+            else
+                leftHeight = 0;
+
+            if (Right != null)
+                rightHeight = Right.GetHeight();
+            else
+                rightHeight = 0;
 
             return 1 + Math.Max(leftHeight, rightHeight);
             }
