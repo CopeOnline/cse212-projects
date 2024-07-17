@@ -45,23 +45,19 @@ public class Node {
     }
 
     public int GetHeight() {
-        if (Left == null && Right == null)
-            return 1; 
-        else {
-            int leftHeight;
-            int rightHeight;
+        int leftHeight;
+        int rightHeight;
 
-            if (Left != null)
-                leftHeight = Left.GetHeight();
-            else
-                leftHeight = 0;
+        if (Left != null)
+            leftHeight = Left.GetHeight();
+        else
+            leftHeight = 0;
 
-            if (Right != null)
-                rightHeight = Right.GetHeight();
-            else
-                rightHeight = 0;
+        if (Right != null)
+            rightHeight = Right.GetHeight();
+        else
+            rightHeight = 0;
 
-            return 1 + Math.Max(leftHeight, rightHeight);
-            }
-        }
+        return 1 + Math.Max(leftHeight, rightHeight);
+        }       
 }
